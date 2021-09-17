@@ -1,3 +1,7 @@
+import meta_title from "../objects/meta_title";
+import meta_description from "../objects/meta_description";
+import meta_image from "../objects/meta_image";
+
 export default {
   type: "document",
   name: "project",
@@ -35,35 +39,9 @@ export default {
   ],
   fields: [
     // SEO
-    {
-      fieldset: "seo",
-      type: "string",
-      name: "meta_title",
-      title: "Meta Title",
-      description: "Optimal length 50-60 characters.",
-      validation: (Rule) => [
-        Rule.required().error("This field is required."),
-        Rule.max(60).warning("This title is longer than 60 characters."),
-      ],
-    },
-    {
-      fieldset: "seo",
-      type: "text",
-      name: "meta_description",
-      title: "Meta Description",
-      description: "Optimal length 140-160 characters.",
-      validation: (Rule) =>
-        Rule.max(160).warning(
-          "This description is longer than 160 characters."
-        ),
-    },
-    {
-      fieldset: "seo",
-      type: "image",
-      name: "meta_image",
-      title: "Meta Image",
-      description: "1200x628 pixels (1.91:1 aspect ratio).",
-    },
+    meta_title,
+    meta_description,
+    meta_image,
     // Project Details
     {
       fieldset: "details",
@@ -76,6 +54,7 @@ export default {
       type: "text",
       name: "description",
       title: "Description",
+      description: "A one-two sentence project description.",
     },
     {
       fieldset: "details",
