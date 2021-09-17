@@ -1,11 +1,11 @@
 export default {
   type: "document",
-  name: "project",
-  title: "Projects",
+  name: "page",
+  title: "Pages",
   preview: {
     select: {
       title: "name",
-      subtitle: "description",
+      subtitle: "meta_description",
     },
   },
   fieldsets: [
@@ -18,7 +18,7 @@ export default {
     },
     {
       name: "details",
-      title: "Project Details",
+      title: "Page Information",
       options: {
         collapsible: true,
         collapsed: false,
@@ -26,7 +26,7 @@ export default {
     },
     {
       name: "content",
-      title: "Project Content",
+      title: "Page Content",
       options: {
         collapsible: true,
         collapsed: false,
@@ -64,7 +64,7 @@ export default {
       title: "Meta Image",
       description: "1200x628 pixels (1.91:1 aspect ratio).",
     },
-    // Project Details
+    // Page Information
     {
       fieldset: "details",
       type: "string",
@@ -73,47 +73,23 @@ export default {
     },
     {
       fieldset: "details",
-      type: "text",
-      name: "description",
-      title: "Description",
+      type: "slug",
+      name: "slug",
+      title: "Slug",
+      description: "Leave blank for the homepage.",
+      options: {
+        source: "name",
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+      },
     },
     {
       fieldset: "details",
-      type: "image",
-      name: "file",
-      title: "Image",
-      fields: [
-        {
-          type: "boolean",
-          name: "is_decorative",
-          title: "Decorative",
-          initalValue: false,
-        },
-        {
-          type: "string",
-          name: "alt",
-          title: "Alt Text",
-          hidden: ({ parent }) => parent?.is_decorative,
-        },
-      ],
+      type: "boolean",
+      name: "uses_light_theme",
+      title: "Light Theme",
+      initialValue: false,
     },
-    {
-      fieldset: "details",
-      type: "array",
-      name: "tags",
-      title: "Tags",
-      of: [
-        {
-          type: "reference",
-          title: "Tag",
-          to: [
-            {
-              type: "project_tag",
-            },
-          ],
-        },
-      ],
-    },
-    // Project Content
+    // Page Content
   ],
 };

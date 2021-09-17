@@ -4,7 +4,10 @@ import createSchema from "part:@sanity/base/schema-creator";
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
-// Custom schema
+// Pages Schema
+import page from "./documents/page";
+
+// Projects Schema
 import project from "./documents/project";
 import project_tag from "./documents/project_tag";
 
@@ -18,6 +21,7 @@ export default createSchema({
     // Articles
     // Article Tags
     // Pages
+    page,
     // Projects
     project,
     project_tag,
