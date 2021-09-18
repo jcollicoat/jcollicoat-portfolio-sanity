@@ -54,7 +54,7 @@ export default {
       type: "slug",
       name: "slug",
       title: "Slug",
-      description: "Leave blank for the homepage.",
+      description: "Doesn't matter for the homepage.",
       options: {
         source: "name",
         slugify: (input) =>
@@ -69,5 +69,11 @@ export default {
       initialValue: false,
     },
     // Page Content
+    {
+      type: "array",
+      name: "content",
+      title: "Page Content",
+      of: [{ type: "hero_home" }, { type: "projects" }],
+    },
   ],
 };

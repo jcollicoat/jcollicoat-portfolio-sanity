@@ -51,6 +51,17 @@ export default {
     },
     {
       fieldset: "details",
+      type: "slug",
+      name: "slug",
+      title: "Slug",
+      options: {
+        source: "name",
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+      },
+    },
+    {
+      fieldset: "details",
       type: "text",
       name: "description",
       title: "Description",
@@ -66,7 +77,7 @@ export default {
           type: "boolean",
           name: "is_decorative",
           title: "Decorative",
-          initalValue: false,
+          initialValue: false,
         },
         {
           type: "string",
@@ -75,6 +86,13 @@ export default {
           hidden: ({ parent }) => parent?.is_decorative,
         },
       ],
+    },
+    {
+      fieldset: "details",
+      type: "boolean",
+      name: "is_interactive",
+      title: "Interactive",
+      initialValue: false,
     },
     {
       fieldset: "details",

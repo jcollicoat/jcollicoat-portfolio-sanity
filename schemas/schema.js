@@ -11,6 +11,10 @@ import page from "./documents/page";
 import project from "./documents/project";
 import project_tag from "./documents/project_tag";
 
+// Sections Schema
+import hero_home from "./sections/hero_home";
+import projects from "./sections/projects";
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -25,5 +29,8 @@ export default createSchema({
     // Projects
     project,
     project_tag,
+    // Sections
+    hero_home,
+    projects,
   ]),
 });
