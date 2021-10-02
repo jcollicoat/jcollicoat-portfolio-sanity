@@ -2,6 +2,9 @@ export default {
   type: "object",
   name: "hero_home",
   title: "Hero (Home)",
+  preview: {
+    prepare: () => ({ title: "Hero (Home)" }),
+  },
   fields: [
     {
       type: "string",

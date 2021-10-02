@@ -28,14 +28,6 @@ export default {
         collapsed: false,
       },
     },
-    {
-      name: "content",
-      title: "Page Content",
-      options: {
-        collapsible: true,
-        collapsed: false,
-      },
-    },
   ],
   fields: [
     // SEO
@@ -63,10 +55,49 @@ export default {
     },
     {
       fieldset: "details",
-      type: "boolean",
-      name: "uses_light_theme",
-      title: "Light Theme",
-      initialValue: false,
+      type: "string",
+      name: "theme",
+      options: {
+        list: [
+          {
+            value: "dark",
+            title: "Dark",
+          },
+          {
+            value: "light",
+            title: "Light",
+          },
+          {
+            value: "custom",
+            title: "Custom",
+          },
+        ],
+      },
+      initialValue: "dark",
+    },
+    {
+      fieldset: "details",
+      type: "object",
+      name: "custom_theme",
+      fields: [
+        {
+          type: "color",
+          name: "background",
+          title: "Background Colour",
+          options: {
+            disableAlpha: true,
+          },
+        },
+        {
+          type: "color",
+          name: "text",
+          title: "Text Colour",
+          options: {
+            disableAlpha: true,
+          },
+        },
+      ],
+      hidden: ({ document }) => document.theme !== "custom",
     },
     // Page Content
     {

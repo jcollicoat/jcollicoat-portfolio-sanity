@@ -25,7 +25,6 @@ export default {
       title: "Project Details",
       options: {
         collapsible: true,
-        collapsed: false,
       },
     },
     {
@@ -66,6 +65,13 @@ export default {
       name: "description",
       title: "Description",
       description: "A one-two sentence project description.",
+    },
+    {
+      fieldset: "details",
+      type: "text",
+      name: "intro",
+      title: "On-Page Intro",
+      description: "A longer intro the project, display on the project page.",
     },
     {
       fieldset: "details",
@@ -111,6 +117,58 @@ export default {
         },
       ],
     },
+    {
+      fieldset: "details",
+      type: "string",
+      name: "theme",
+      options: {
+        list: [
+          {
+            value: "dark",
+            title: "Dark",
+          },
+          {
+            value: "light",
+            title: "Light",
+          },
+          {
+            value: "custom",
+            title: "Custom",
+          },
+        ],
+      },
+      initialValue: "dark",
+    },
+    {
+      fieldset: "details",
+      type: "object",
+      name: "custom_theme",
+      fields: [
+        {
+          type: "color",
+          name: "background",
+          title: "Background Colour",
+          options: {
+            disableAlpha: true,
+          },
+        },
+        {
+          type: "color",
+          name: "text",
+          title: "Text Colour",
+          options: {
+            disableAlpha: true,
+          },
+        },
+      ],
+      hidden: ({ document }) => document.theme !== "custom",
+    },
     // Project Content
+    {
+      type: "array",
+      name: "content",
+      title: "Project Content",
+      of: [{ type: "projects" }],
+    },
   ],
 };
