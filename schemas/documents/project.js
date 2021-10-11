@@ -121,6 +121,7 @@ export default {
       fieldset: "details",
       type: "string",
       name: "theme",
+      title: "Select Theme",
       options: {
         list: [
           {
@@ -168,7 +169,14 @@ export default {
       type: "array",
       name: "content",
       title: "Project Content",
-      of: [{ type: "projects" }],
+      of: [
+        { type: "project_image" },
+        { type: "project_image_grid" },
+        { type: "project_image_text" },
+        { type: "project_process_work" },
+        { type: "project_text" },
+        { type: "project_video" },
+      ],
     },
   ],
 };

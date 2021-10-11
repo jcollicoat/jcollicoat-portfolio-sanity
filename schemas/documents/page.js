@@ -57,6 +57,7 @@ export default {
       fieldset: "details",
       type: "string",
       name: "theme",
+      title: "Select Theme",
       options: {
         list: [
           {
