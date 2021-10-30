@@ -147,6 +147,12 @@ export default {
       hidden: ({ parent }) => !parent?.include_copy,
     },
     {
+      type: "string",
+      name: "cta_text",
+      title: "CTA Text",
+      hidden: ({ parent }) => parent.include_cta === "none",
+    },
+    {
       type: "reference",
       name: "link_internal",
       title: "Internal Link",

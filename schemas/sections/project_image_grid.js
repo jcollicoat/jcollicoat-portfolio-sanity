@@ -7,6 +7,16 @@ export default {
   },
   fields: [
     {
+      type: "string",
+      name: "copy_heading",
+      title: "Copy Heading",
+    },
+    {
+      type: "text",
+      name: "copy",
+      title: "Copy",
+    },
+    {
       type: "number",
       name: "columns",
       title: "Number of Columns",
