@@ -7,6 +7,9 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 // Pages Schema
 import page from "./documents/page";
 
+// Files Schema
+import filedoc from "./documents/filedoc";
+
 // Projects Schema
 import project from "./documents/project";
 import project_tag from "./documents/project_tag";
@@ -32,6 +35,8 @@ export default createSchema({
     // Article Tags
     // Pages
     page,
+    // Files
+    filedoc,
     // Projects
     project,
     project_tag,

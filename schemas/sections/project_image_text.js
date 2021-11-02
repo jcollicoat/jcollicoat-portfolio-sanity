@@ -80,6 +80,10 @@ export default {
             title: "Internal",
           },
           {
+            value: "file",
+            title: "File/Document",
+          },
+          {
             value: "external",
             title: "External",
           },
@@ -99,6 +103,13 @@ export default {
       title: "Internal Link",
       to: [{ type: "page" }, { type: "project" }],
       hidden: ({ parent }) => parent.include_cta !== "internal",
+    },
+    {
+      type: "reference",
+      name: "link_file",
+      title: "File/Document",
+      to: [{ type: "filedoc" }],
+      hidden: ({ parent }) => parent.include_cta !== "file",
     },
     {
       type: "url",
