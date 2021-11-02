@@ -47,6 +47,27 @@ export default {
       initialValue: 3,
     },
     {
+      type: "string",
+      name: "image_size",
+      title: "Image Size",
+      options: {
+        list: [
+          {
+            value: "small",
+            title: "Small",
+          },
+          {
+            value: "medium",
+            title: "Medium",
+          },
+          {
+            value: "large",
+            title: "Large",
+          },
+        ],
+      },
+    },
+    {
       type: "array",
       name: "items",
       title: "Items",
