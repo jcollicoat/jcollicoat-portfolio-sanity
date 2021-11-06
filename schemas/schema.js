@@ -14,6 +14,10 @@ import filedoc from "./documents/filedoc";
 import project from "./documents/project";
 import project_tag from "./documents/project_tag";
 
+// Articles Schema
+import article from "./documents/article";
+import article_tag from "./documents/article_tag";
+
 // Sections Schema
 import hero_home from "./sections/hero_home";
 import projects from "./sections/projects";
@@ -31,14 +35,16 @@ export default createSchema({
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
-    // Articles
-    // Article Tags
     // Pages
     page,
     // Files
     filedoc,
+    // Articles
+    article,
     // Projects
     project,
+    // Tags
+    article_tag,
     project_tag,
     // Sections
     hero_home,

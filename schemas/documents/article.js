@@ -4,8 +4,8 @@ import meta_image from "../objects/meta_image";
 
 export default {
   type: "document",
-  name: "project",
-  title: "Projects",
+  name: "article",
+  title: "Articles",
   preview: {
     select: {
       title: "name",
@@ -22,14 +22,14 @@ export default {
     },
     {
       name: "details",
-      title: "Project Details",
+      title: "Article Details",
       options: {
         collapsible: true,
       },
     },
     {
       name: "content",
-      title: "Project Content",
+      title: "Article Content",
       options: {
         collapsible: true,
         collapsed: false,
@@ -41,7 +41,7 @@ export default {
     meta_title,
     meta_description,
     meta_image,
-    // Project Details
+    // Article Details
     {
       fieldset: "details",
       type: "string",
@@ -56,7 +56,11 @@ export default {
       options: {
         source: "name",
         slugify: (input) =>
-          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+          input
+            .toLowerCase()
+            .replace(/[^\w ]+/g, "")
+            .replace(/ +/g, "-")
+            .slice(0, 200),
       },
     },
     {
@@ -64,14 +68,14 @@ export default {
       type: "text",
       name: "description",
       title: "Description",
-      description: "A one-two sentence project description.",
+      description: "A one-two sentence article description.",
     },
     {
       fieldset: "details",
       type: "text",
       name: "intro",
-      title: "On-Page Intro",
-      description: "A longer intro the project. Displays on the project page.",
+      title: "Intro",
+      description: "A longer intro the article. Displays on the article page.",
     },
     {
       fieldset: "details",
@@ -95,13 +99,6 @@ export default {
     },
     {
       fieldset: "details",
-      type: "boolean",
-      name: "is_interactive",
-      title: "Interactive",
-      initialValue: false,
-    },
-    {
-      fieldset: "details",
       type: "array",
       name: "tags",
       title: "Tags",
@@ -111,72 +108,18 @@ export default {
           title: "Tag",
           to: [
             {
-              type: "project_tag",
+              type: "article_tag",
             },
           ],
         },
       ],
     },
-    {
-      fieldset: "details",
-      type: "string",
-      name: "theme",
-      title: "Select Theme",
-      options: {
-        list: [
-          {
-            value: "dark",
-            title: "Dark",
-          },
-          {
-            value: "light",
-            title: "Light",
-          },
-          {
-            value: "custom",
-            title: "Custom",
-          },
-        ],
-      },
-      initialValue: "dark",
-    },
-    {
-      fieldset: "details",
-      type: "object",
-      name: "custom_theme",
-      fields: [
-        {
-          type: "color",
-          name: "background",
-          title: "Background Colour",
-          options: {
-            disableAlpha: true,
-          },
-        },
-        {
-          type: "color",
-          name: "text",
-          title: "Text Colour",
-          options: {
-            disableAlpha: true,
-          },
-        },
-      ],
-      hidden: ({ document }) => document.theme !== "custom",
-    },
-    // Project Content
+    // Article Content
     {
       type: "array",
       name: "content",
-      title: "Project Content",
-      of: [
-        { type: "project_image" },
-        { type: "project_image_grid" },
-        { type: "project_image_text" },
-        { type: "project_process_work" },
-        { type: "project_text" },
-        { type: "project_video" },
-      ],
+      title: "Article Content",
+      of: [{ type: "block" }],
     },
   ],
 };
