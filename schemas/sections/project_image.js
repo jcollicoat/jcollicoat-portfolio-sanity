@@ -3,7 +3,8 @@ export default {
   name: "project_image",
   title: "Image",
   preview: {
-    prepare: () => ({ title: "Image" }),
+    select: { media: "image" },
+    prepare: ({ media }) => ({ title: "Image", media: media }),
   },
   fields: [
     {

@@ -3,7 +3,10 @@ export default {
   name: "project_process_work",
   title: "Process Work",
   preview: {
-    prepare: () => ({ title: "Process Work" }),
+    select: {
+      media: "items[0].image",
+    },
+    prepare: ({ media }) => ({ title: "Process Work", media: media }),
   },
   fields: [
     {

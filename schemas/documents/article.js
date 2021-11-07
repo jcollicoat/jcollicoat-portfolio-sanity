@@ -119,7 +119,7 @@ export default {
       type: "array",
       name: "content",
       title: "Article Content",
-      of: [{ type: "block" }],
+      of: [{ type: "block" }, { type: "article_image" }],
     },
   ],
 };

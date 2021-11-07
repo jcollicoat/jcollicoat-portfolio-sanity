@@ -3,7 +3,10 @@ export default {
   name: "project_image_grid",
   title: "Image Grid",
   preview: {
-    prepare: () => ({ title: "Image Grid" }),
+    select: {
+      media: "items[0].image",
+    },
+    prepare: ({ media }) => ({ title: "Image Grid", media: media }),
   },
   fields: [
     {
