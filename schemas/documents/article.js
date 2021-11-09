@@ -1,3 +1,5 @@
+import { FiLink, FiFile, FiPaperclip } from "react-icons/fi";
+
 import meta_title from "../objects/meta_title";
 import meta_description from "../objects/meta_description";
 import meta_image from "../objects/meta_image";
@@ -119,7 +121,72 @@ export default {
       type: "array",
       name: "content",
       title: "Article Content",
-      of: [{ type: "block" }, { type: "article_image" }],
+      of: [
+        {
+          type: "block",
+          marks: {
+            annotations: [
+              {
+                type: "object",
+                name: "link_internal",
+                title: "Internal Link",
+                blockEditor: {
+                  icon: FiPaperclip,
+                },
+                fields: [
+                  {
+                    type: "reference",
+                    name: "reference",
+                    title: "Reference",
+                    to: [
+                      { type: "page" },
+                      { type: "project" },
+                      { type: "article" },
+                    ],
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "link_file",
+                title: "File/Document",
+                blockEditor: {
+                  icon: FiFile,
+                },
+                fields: [
+                  {
+                    type: "reference",
+                    name: "reference",
+                    title: "Reference",
+                    to: [{ type: "filedoc" }],
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "link_external",
+                title: "External Link",
+                blockEditor: {
+                  icon: FiLink,
+                },
+                fields: [
+                  {
+                    type: "url",
+                    name: "url",
+                    title: "Link",
+                    validation: (Rule) =>
+                      Rule.uri({
+                        scheme: ["http", "https", "mailto", "tel"],
+                      }),
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        { type: "article_image" },
+        { type: "code" },
+      ],
     },
   ],
 };
