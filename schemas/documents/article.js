@@ -184,6 +184,7 @@ export default {
             ],
           },
         },
+        { type: "article_component" },
         { type: "article_image" },
         { type: "code" },
       ],

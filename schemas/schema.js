@@ -29,6 +29,7 @@ import project_text from "./sections/project_text";
 import project_video from "./sections/project_video";
 
 // Blocks Schema
+import article_component from "./blocks/article_component";
 import article_image from "./blocks/article_image";
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -59,6 +60,7 @@ export default createSchema({
     project_text,
     project_video,
     // Blocks,
+    article_component,
     article_image,
   ]),
 });
