@@ -106,6 +106,7 @@ export default {
       name: "content",
       title: "Page Content",
       of: [
+        { type: "about_me" },
         { type: "articles" },
         { type: "hero_home" },
         { type: "hero_page" },

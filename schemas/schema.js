@@ -19,6 +19,7 @@ import article from "./documents/article";
 import article_tag from "./documents/article_tag";
 
 // Sections Schema
+import about_me from "./sections/about_me";
 import articles from "./sections/articles";
 import hero_home from "./sections/hero_home";
 import hero_page from "./sections/hero_page";
@@ -53,6 +54,7 @@ export default createSchema({
     article_tag,
     project_tag,
     // Sections
+    about_me,
     articles,
     hero_home,
     hero_page,

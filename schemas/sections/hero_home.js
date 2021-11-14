@@ -12,7 +12,7 @@ export default {
       title: "Heading",
     },
     {
-      type: "string",
+      type: "text",
       name: "intro",
       title: "Intro",
     },
