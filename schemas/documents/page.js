@@ -105,7 +105,12 @@ export default {
       type: "array",
       name: "content",
       title: "Page Content",
-      of: [{ type: "hero_home" }, { type: "projects" }],
+      of: [
+        { type: "articles" },
+        { type: "hero_home" },
+        { type: "hero_page" },
+        { type: "projects" },
+      ],
     },
   ],
 };

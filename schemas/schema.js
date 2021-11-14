@@ -19,7 +19,9 @@ import article from "./documents/article";
 import article_tag from "./documents/article_tag";
 
 // Sections Schema
+import articles from "./sections/articles";
 import hero_home from "./sections/hero_home";
+import hero_page from "./sections/hero_page";
 import projects from "./sections/projects";
 import project_image from "./sections/project_image";
 import project_image_grid from "./sections/project_image_grid";
@@ -51,7 +53,9 @@ export default createSchema({
     article_tag,
     project_tag,
     // Sections
+    articles,
     hero_home,
+    hero_page,
     projects,
     project_image,
     project_image_grid,
